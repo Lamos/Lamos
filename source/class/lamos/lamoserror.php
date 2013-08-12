@@ -2,4 +2,8 @@
 
 class LamosError {
 
+	public static function exception_error($e){
+
+	}
+
 }

@@ -84,7 +84,7 @@ Kohana::init(
 	)
 );
 
-require APPPATH.'../keys.php';
+Cookie::$salt = 'R5Z6W4Z9Z6N9X3U4E0J0D9W4V3E6W4K8';
 
 /**
  * Attach the file write to logging. Multiple writers are supported.
