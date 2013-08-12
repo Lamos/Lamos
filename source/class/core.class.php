@@ -1,14 +1,18 @@
 <?PHP
+/*******************************************************
+ *
+ *
+ *
+ *
+ *
+ *
+ ******************************************************/
 define('IN_LAMOS', true);
 define('LAMOS_ROOT', dirname(dirname(dirname(__FILE__))));
 
-if(function_exists('spl_autoload_register')) {
-	spl_autoload_register(array('CORE', 'autoload'));
-} else {
-	function __autoload($class) {
-		return CORE::autoload($class);
-	}
-}
+spl_autoload_register(array('CORE', 'autoload'));
+
+
 class CORE {
 
 	private static $_imports;
@@ -20,11 +24,11 @@ class CORE {
 		if(!isset(self::$_imports[$key])) {
 			$path = LAMOS_ROOT.'/source/'.$folder;
 			if(strpos($name, '/') !== false) {
-				$pre      = basename(dirname($name));
-				if($pre === 'lamos'){
+				$pre = basename(dirname($name));
+				if($pre === 'lamos') {
 					$filename = dirname($name).'/lamos'.basename($name).'.php';
-				}else{
-				$filename = dirname($name).'/'.basename($name).'.'.$pre.'.php';
+				} else {
+					$filename = dirname($name).'/'.basename($name).'.'.$pre.'.php';
 				}
 			} else {
 				$filename = $name.'.php';
