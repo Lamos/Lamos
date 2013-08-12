@@ -5,8 +5,11 @@ define('NOROBOT', true);
 
 include'./source/class/core.class.php';
 
+
+$admincp = new LamosAdmincp();
+
 $action = isset($_GET['action']) ? $_GET['action'] : '';
 
 if(empty($action)){
-	echo('asfasd');
+	$admincp->show_admincp_main();
 }
